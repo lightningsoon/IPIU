@@ -83,13 +83,15 @@ def timeRate(predictTime):
     pass
 
 
-def accuracy(TPR, FPR):
+def accuracy(y_true, y_pred):
     '''
 
     :param TPR: 真正率的均值
     :param FPR: 
     :return: 
     '''
+    TPR,FPR=eval_TPR_mean(y_true,y_pred),eval_FPR_mean(y_true,y_pred)
+
     R = np.array([TPR, FPR])
     vec = np.array([1, 0])
     temp = np.linalg.norm(R - vec)
